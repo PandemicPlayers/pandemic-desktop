@@ -1,6 +1,6 @@
-var path = require('path');
+const path = require('path');
 
-var config = {
+const config = {
   entry: path.resolve(__dirname, 'js/app.js'),
   module: {
     loaders: [
@@ -16,8 +16,10 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
-  }
+    extensions: ['', '.js', '.jsx'],
+    packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
+  },
+  target: 'electron-renderer'
 };
 
 module.exports = config;
